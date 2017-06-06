@@ -190,5 +190,3 @@ if ('undefined' == typeof window.jQuery) {
 else {
 	start_routine_queue();
 }
-
-// $_jq('a._8imhp').length
