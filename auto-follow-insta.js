@@ -31,7 +31,7 @@ else {
 var object_carrega_mais = 'a._1cr2e',
 	object_botao_fechar_foto = 'button._dcj9f',
 	object_link_foto = 'div._cmdpi div._si7dy',
-	object_conteiner_foto = 'div[data-reactroot] article',
+	object_conteiner_foto = 'div[role="dialog"] article',
 	object_botao_seguir = object_conteiner_foto+' header button',
 	object_conteiner_like = object_conteiner_foto+' section._hmd6j',
 	object_botao_like_vazio = object_conteiner_like+' '+ 'a._eszkz .coreSpriteHeartOpen',
