@@ -70,7 +70,7 @@ var object_carrega_mais = 'a._1cr2e',
 			var link_carrega_mais = $_jq(object_carrega_mais);
 			if (link_carrega_mais.length == 1) {
 				console.log('[i] - clique botao carrega mais');
-				$_jq('body').scrollTop( link_carrega_mais.offset().top );
+				$_jq('body,html').scrollTop( link_carrega_mais.offset().top );
 				//link_carrega_mais.click();
 				setTimeout(open_next_photo, randon_time());
 				return true;
@@ -79,14 +79,14 @@ var object_carrega_mais = 'a._1cr2e',
 			console.log('- abrir proxima foto');
 			var link_da_vez = $_jq(object_link_foto+':not(.jafoiaberta):first');
 			if (link_da_vez.length == 1) {
-				$_jq('body').scrollTop( link_da_vez.offset().top );
+				$_jq('body,html').scrollTop( link_da_vez.offset().top );
 				link_da_vez.addClass('jafoiaberta').css('border','5px solid #0c0').click();
 			}
 			else {
 				var ultimo_link = $_jq(object_link_foto+':last');
 				if (ultimo_link.length == 1) {
 					console.log('- carregar mais');
-					$_jq('body').scrollTop( ultimo_link.offset().top );
+					$_jq('body,html').scrollTop( ultimo_link.offset().top );
 				}
 			}
 			setTimeout(start_routine_queue, randon_time());
@@ -109,7 +109,7 @@ var object_carrega_mais = 'a._1cr2e',
 	scroll_to_last_photo = function() {
 		var ultimo_link = $_jq(object_link_foto+'.jafoiaberta:last');
 		if (ultimo_link.length == 1) {
-			$_jq('body').scrollTop( ultimo_link.offset().top );
+			$_jq('body,html').scrollTop( ultimo_link.offset().top );
 		}
 	},
 	follow_this_user = function() {
