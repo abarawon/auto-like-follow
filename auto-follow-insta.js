@@ -29,13 +29,13 @@ else {
 }
 
 var object_carrega_mais = 'a._1cr2e',
-	object_botao_fechar_foto = 'button._dcj9f',
-	object_link_foto = 'main[role="main"] a div > div._si7dy',
+	object_botao_fechar_foto = 'button.ckWGn',
+	object_link_foto = 'main[role="main"] a[href*="/p/"] div[role="button"]',
 	object_conteiner_foto = 'div[role="dialog"] article',
 	object_botao_seguir = object_conteiner_foto+' header button',
-	object_conteiner_like = object_conteiner_foto+' section._hmd6j',
-	object_botao_like_vazio = object_conteiner_like+' '+ 'a._eszkz .coreSpriteHeartOpen',
-	object_botao_like_cheio = object_conteiner_like+' '+ 'a._eszkz .coreSpriteHeartFull',
+	object_conteiner_like = object_conteiner_foto+' section.ltpMr',
+	object_botao_like_vazio = object_conteiner_like+' '+ 'a[role="button"] .coreSpriteHeartOpen',
+	object_botao_like_cheio = object_conteiner_like+' '+ 'a[role="button"] .coreSpriteHeartFull',
 // var object_botao_fechar_foto = 'button._3eajp',
 // 	object_link_foto = 'div._ovg3g',
 // 	object_conteiner_foto = 'article._djxz1',
@@ -50,10 +50,13 @@ var object_carrega_mais = 'a._1cr2e',
 	try_open_photo_total = 6,
 	try_open_photo_count = 0,
 	randon_time = function() {
-			return 3500 + Math.floor((Math.random() * 3000) + 1);
+			var fast_time = 3500 + Math.floor((Math.random() * 3000) + 1);
+			console.log('(fast timing %s)', fast_time/1000);
+			return fast_time;
 		},
 	randon_long_time = function() {
 			var temp_longtime = 33000 + Math.floor((Math.random() * 9000) + 1);
+			console.log('(long timing %s)', temp_longtime/1000);
 			//console.log('- aguarda tempo longo '+temp_longtime);
 			return temp_longtime;
 		},
