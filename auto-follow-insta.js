@@ -34,8 +34,8 @@ var object_carrega_mais = 'a._1cr2e',
 	object_conteiner_foto = 'div[role="dialog"] article',
 	object_botao_seguir = object_conteiner_foto+' header button',
 	object_conteiner_like = object_conteiner_foto+' section.ltpMr',
-	object_botao_like_vazio = object_conteiner_like+' '+ 'a[role="button"] .coreSpriteHeartOpen',
-	object_botao_like_cheio = object_conteiner_like+' '+ 'a[role="button"] .coreSpriteHeartFull',
+	object_botao_like = object_conteiner_like+' '+ 'button.coreSpriteHeartOpen',
+	object_botao_like_texto = ['Curtir','Like'],
 // var object_botao_fechar_foto = 'button._3eajp',
 // 	object_link_foto = 'div._ovg3g',
 // 	object_conteiner_foto = 'article._djxz1',
@@ -141,19 +141,21 @@ var object_carrega_mais = 'a._1cr2e',
 			return true;
 		},
 	click_like = function() {
-			var botao_de_like = $_jq(object_botao_like_vazio);
+			var botao_de_like = $_jq(object_botao_like);
 			if (botao_de_like.length==1) {
-				console.log('- clica em curtir');
-				botao_de_like.click();
-				setTimeout(close_this_photo, randon_time());
-			}
-			else {
-				if ($_jq(object_botao_like_cheio).length <= 0) {
-					console.log('... botao de like nao encontrado');
+				var botao_de_like_texto = botao_de_like.text();
+				if (object_botao_like_texto.indexOf(botao_de_like_texto) > -1) {
+					console.log('- clica em curtir: ', botao_de_like_texto);
+					botao_de_like.click();
+					setTimeout(close_this_photo, randon_time());
 				}
 				else {
-					console.log('- foto ja curtida');
+					console.log('- foto já curtida ou botão alterado: ', botao_de_like_texto);
+					close_this_photo();
 				}
+			}
+			else {
+				console.log('... botao de like nao encontrado');
 				close_this_photo();
 			}
 			return true;
