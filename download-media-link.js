@@ -9,8 +9,9 @@ the script run autofollow on feed
 var objects_img_list = {
 		insta_photo_page: 'main[role="main"] article div[role="button"] img[srcset*=".jpg"]',
 		insta_photo_popup: 'div[role="dialog"] article div[role="button"] img[srcset*=".jpg"]',
-		instagram_story: 'div[role="dialog"] article div[role="button"] img[srcset*=".jpg"]',
-		photo_500px: 'div[role="dialog"] article div[role="button"] img[srcset*=".jpg"]'
+		insta_story_video: '#react-root section section > header ~ div video > source[src*=".mp4"]:first',
+		insta_story_photo: '#react-root section section > header ~ div img[srcset*=".jpg"]',
+		photo_500px: '#modal_content .photo_container > img[src*="/photo/"]'
 	},
 	randon_time = function() {
 			var fast_time = 3500 + Math.floor((Math.random() * 3000) + 1);
@@ -60,6 +61,7 @@ var objects_img_list = {
 
 if ('undefined' == typeof window.jQuery) {
 	    window.$_old = window.$;
+	    window.$_jQuery = window.jQuery;
 		window.$_jq = null;
 
 	(function(d, s, id) { 
@@ -73,8 +75,9 @@ if ('undefined' == typeof window.jQuery) {
 			console.log( 'jq carregado', this );
 			setTimeout(function(){
 				console.log( 'init origin jq' );
-				window.$_jq = window.$;
+				window.$_jq = window.jQuery;
 				window.$ = window.$_old;
+				window.jQuery = window.$_jQuery;
 				start_download_button();
 			}, 6000);
 		};
@@ -82,5 +85,6 @@ if ('undefined' == typeof window.jQuery) {
 	}(document, 'script', 'jquery'));
 }
 else {
+	window.$_jq = window.jQuery;
 	start_download_button();
 }
