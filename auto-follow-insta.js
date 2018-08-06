@@ -34,7 +34,7 @@ var object_carrega_mais = 'a._1cr2e',
 	object_conteiner_foto = 'div[role="dialog"] article',
 	object_botao_seguir = object_conteiner_foto+' header button',
 	object_conteiner_like = object_conteiner_foto+' section.ltpMr',
-	object_botao_like = object_conteiner_like+' '+ 'button.coreSpriteHeartOpen',
+	object_botao_like = object_conteiner_like+' '+ 'button.coreSpriteHeartOpen [aria-label!=""]',
 	object_botao_like_texto = ['Curtir','Like'],
 // var object_botao_fechar_foto = 'button._3eajp',
 // 	object_link_foto = 'div._ovg3g',
@@ -143,7 +143,7 @@ var object_carrega_mais = 'a._1cr2e',
 	click_like = function() {
 			var botao_de_like = $_jq(object_botao_like);
 			if (botao_de_like.length==1) {
-				var botao_de_like_texto = botao_de_like.text();
+				var botao_de_like_texto = botao_de_like.attr('aria-label');
 				if (object_botao_like_texto.indexOf(botao_de_like_texto) > -1) {
 					console.log('- clica em curtir: ', botao_de_like_texto);
 					botao_de_like.click();
